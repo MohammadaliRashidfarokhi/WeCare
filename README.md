@@ -1,6 +1,5 @@
 # WeCare
-
-# Demo:
+The application main idea to help people and the clinic to preform PCR tests and COVID-19 advice. The clinic before COVID-19 worked with papers and local archives, which make that patient preferred to do the tests in other clinics to get there tests faster and to be able to check it online in the airports.
 
 # Run Instructions:
 
