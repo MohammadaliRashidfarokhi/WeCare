@@ -1,0 +1,150 @@
+﻿body {
+    font-family: Arial;
+    font-size: 17px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+
+
+    .btn:hover {
+        /*  background-color: #45a049;*/
+        text-decoration: none;
+    }
+.btn:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+a {
+    color: #2196F3;
+}
+
+hr {
+    border: 1px solid lightgrey;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+/*@media (min-width: 321px) and (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse !important;
+    }
+
+    .col-25 {
+        margin-bottom: 20px !important;
+    }
+
+    input[type=text] {
+        width: 70% !important;
+        margin-bottom: 20px !important;
+        padding: 12px !important;
+        border: 1px solid #ccc !important;
+        border-radius: 3px !important;
+    }
+
+    #comments {
+        width: 80% !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .bg-dark {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        background-color: white !important;
+    }*/
+
+/*    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }*/
+/*}*/
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse !important;
+    }
+
+    .col-75 {
+        margin-bottom: 20px;
+    }
+
+    input[type=text] {
+        width: 70% !important;
+        margin-bottom: 20px !important;
+        padding: 12px !important;
+        border: 1px solid #ccc !important;
+        border-radius: 3px !important;
+    }
+
+    #comments {
+        width: 80% !important;
+    }
+}

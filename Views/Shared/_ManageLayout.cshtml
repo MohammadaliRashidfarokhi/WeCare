@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_HeaderLayout";
+}
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#"><span class="text-primary">We</span>Care</a>
+
+
+
+    </div> <!-- .container -->
+    <div class="container" id="navbarSupportedContent">
+        @RenderSection("ul", false)
+
+    </div>
+</nav>
+
+
+<div id="content">
+    @RenderBody()
+ 
+</div>

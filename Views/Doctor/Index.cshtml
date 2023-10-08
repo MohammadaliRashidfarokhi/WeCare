@@ -1,0 +1,65 @@
+﻿
+
+
+
+@model PCR.Models.ViewModels.SamplesPdf
+
+@{
+    Layout = "_ManageLayout";
+
+}
+
+@section ul{
+  <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item"><a class="nav-link" asp-action="AddResult" asp-controller="Doctor">Add Result</a></li>
+      <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Settings">Settings</a></li>
+
+  </ul>
+  @*<link rel="stylesheet" href="~/new/css/doctor.css" />*@
+
+  <form class="form-inline">
+
+    <button asp-controller="Account" asp-action="Logout" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+  </form>
+
+}
+
+<form method="post" asp-action="Index">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+
+
+        <th scope="col">Reportid</th>
+        <th scope="col">Patient</th>
+          <th scope="col">SampleName</th>
+          <th scope="col">Result added by</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var user in @ViewBag.all)
+      {
+      <tr>
+        <td>@user.Reportid</td>
+        <td>@user.Patient</td>
+
+          <td > <a name="Reportid" asp-route-id=@user.Reportid asp-action="_Invoice">CHECK</a> </td>
+          
+          @if (@user.checkedBy != null)
+          {
+              <td>@user.checkedBy</td>
+          }
+          
+          @if (@user.checkedBy == null)
+          {
+              <td>No doctor reviewed the report yet</td>
+          }
+
+
+      </tr>
+
+      }
+    </tbody>
+  </table>
+</form>

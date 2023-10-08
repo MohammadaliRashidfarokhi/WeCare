@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_MainLayout";
+    ViewBag.Title = "All Doctors";
+}
+
+@model PCR.Models.User
+
+@{
+  ViewData["Title"] = "Home Page";
+
+}
+
+
+<div class="back-to-top"></div>
+<br
+
+
+<div id="doctors" class="parallax section db" data-stellar-background-ratio="0.4" style="background:#fff;" data-scroll-id="doctors" tabindex="-1">
+  <div class="container">
+
+
+    <div class="row dev-list text-center">
+      @foreach (var user in @ViewBag.allDoctors)
+      {
+
+      
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+          <div class="widget clearfix">
+            <img src="@Url.Content(String.Format("~/images/{0}.jpg", user.UserName))" alt="" class="img-responsive img-rounded">
+            
+            <div class="widget-title">
+              <h3>@user.Name</h3>
+             
+            </div>
+
+
+          </div><!--widget -->
+        </div><!-- end col -->
+
+      }
+ 
+
+
+    </div><!-- end row -->
+  </div><!-- end container -->
+</div>
+
+<style>
+    h3 {
+        background-position: 100px;
+        color: #ffffff;
+        background: #1d86df;
+        background: -moz-linear-gradient(left, #1d86df 0%, #39b49a 100%);
+        background: -webkit-linear-gradient(left, #1d86df 0%, #39b49a 100%);
+    }
+</style>
+
+<script src="~/js/jquery-3.5.1.min.js"></script>
+
+<script src="~/js/bootstrap.bundle.min.js"></script>
+
+<script src="~/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+<script src="~/vendor/wow/wow.min.js"></script>
+
+<script src="~/js/theme.js"></script>

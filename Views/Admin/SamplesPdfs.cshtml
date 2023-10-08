@@ -1,0 +1,110 @@
+﻿@*
+  For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+ 
+
+}
+@model IQueryable<PCR.Models.ViewModels.SamplesPdf>
+
+
+@{
+    Layout = "_ManageLayout";
+
+}
+
+
+
+@section ul{
+    
+    <li class="nav-item"><a class="nav-link" asp-controller="Admin" asp-action="Index">Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateUser" asp-controller="Admin">Create User</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="Roles" asp-controller="Admin">Roles / Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateRole" asp-controller="Admin">Create Role</a></li>
+
+               
+    <form class="form-inline">
+
+        <button asp-controller="Account" asp-action="LogOut" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+    </form>
+}
+
+<div class="col-75">
+  <form method="post" asp-action="SamplesPdfs">
+
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>Reportid</th>
+          <th>Patient</th>
+          <th>SampleName</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var user in Model)
+        {
+          <tr>
+            <td>@user.Reportid</td>
+            <td>@user.Patient</td>
+            <td name="file"><a><input  name="file" value="@user.SampleName" type="submit"/></a></td>
+
+          </tr>
+
+        }
+
+      </tbody>
+    </table>
+    @*<table id="example" class="table-responsive-xl" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (IdentityUser user in Model)
+        {
+          <tr>
+            <td>@user.Id</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>
+              <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                <button onclick="return confirm('Är du säker att du vill radera användaren?')" type="submit" class="btn btn-sm btn-danger">
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+
+        }
+
+        </tbody>
+      </table>*@
+
+  </form>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+
+
+  <div class="inner">
+    <p>  © 2021 Copyright: <a>COVID24LAB</a><a></a>.</p>
+  </div>
+  <!-- Copyright -->
+</footer>

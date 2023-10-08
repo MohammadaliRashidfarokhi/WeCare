@@ -1,0 +1,178 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+
+
+
+}
+@{
+    Layout = "_ManageLayout";
+
+}
+@*@{
+  @model Report
+
+}*@
+@model PCR.Models.ViewModels.SamplesPdf
+
+@section ul{
+    
+    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Back">Home</a></li>
+    <li class="nav-item"><a class="nav-link" asp-controller="Report" asp-action="Appointment">Make appointment</a></li>
+    <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Settings">Settings</a></li>
+    <li class="nav-item">  <a class="nav-link" href='javascript:history.go(-1)'>Back</a></li>
+ 
+
+               
+    <form class="form-inline">
+
+        <button asp-controller="Account" asp-action="LogOut" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+    </form>
+}
+
+
+
+<form method="post"  asp-action="Index">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+
+
+            <th scope="col">Reportid</th>
+            <th scope="col">Patient</th>
+            <th scope="col">SampleName</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in @ViewBag.all)
+        {
+            <tr>
+                <td>@user.Reportid</td>
+                <td>@user.Patient</td>
+           
+               @if (@user.Checked == true)
+               {
+                   <td > <a name="Reportid" asp-route-id=@user.Reportid as asp-action="_Invoice2">CHECK</a> </td>
+               }
+               
+               @if (@user.Checked != true)
+               {
+                   <td>On progress</td>
+               }
+
+
+            </tr>
+
+        }
+        </tbody>
+    </table>
+</form>
+
+
+<link rel="stylesheet" href="~/css/rForm.css" />
+@*
+<div>
+  <div class="col-75">
+    <div class="container">
+      <form asp-antiforgery="true" method="POST" asp-action="_Invoice" asp-controller="Report">
+        <div class="row">
+          <div class="col-50">
+            <label for="clinique">
+              <i class="fa fa-h-square"></i>
+              Clinic
+            </label>
+            <select asp-for="Citizenship" type="text" id="clinique" name="clinique" placeholder="John M. Doe">
+              <option value="Abcure Upplandsgatan">XXX XXX</option>
+              <option value="Abcure Bergshamra">Abcure Bergshamra</option>
+              <option value="Abcure St Eriksgatan">Abcure St Eriksgatan</option>
+              <option value="Abcure Liljeholmen">Abcure Liljeholmen</option>
+              <option value="Abcure Rinkeby">Abcure Rinkeby</option>
+              <option value="Abcure Drottninggatan">Abcure Drottninggatan</option>
+            </select>
+            <hr>
+            <label for="patient"><i class="fa fa-user" aria-hidden="true"></i> patient Name  </label>
+            <input asp-for="Patient" type="text" id="Patient" name="Patient" type="text">
+
+            <hr>
+
+            <label for="time"><i class="fa fa-clock-o" aria-hidden="true"></i>  Date & Time</label>
+            <input asp-for="DateOfObservation" id="DateOfObservation" name="DateOfObservation" type="datetime-local">
+            <hr>
+            <label for="BirthDate"><i class="fa fa-clock-o" aria-hidden="true"></i> Birth Day</label>
+            <input asp-for="BirthDate" id="BirthDate" name="BirthDate" type="date">
+            <hr>
+
+            <label for="PassportNumber"><i class="fa fa-info-circle" aria-hidden="true"></i> Passport Number </label>
+
+            <input type="number" asp-for="PassportNumber" name="PassportNumber" id="PassportNumber">
+            <hr>
+
+            <label for="phonenumber"> <i class="fa fa-phone-square" aria-hidden="true"></i> Phonenumber</label>
+
+            <input asp-for="Phonenumber" id="phonenumber" name="phonenumber" type="tel">
+            <hr>
+
+            <div class="row">
+              <div class="col-50">
+
+                <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </label>
+
+                <input asp-for="Email" id="email" name="email" type="email">
+              </div>
+              <div class="col-50">
+
+                <label for="email-2"> <i class="fa fa-envelope" aria-hidden="true"></i>  Verify Email</label>
+
+                <input asp-for="EmailConf" id="EmailConf" name="EmailConf" type="email">
+              </div>
+              <hr>
+
+
+            </div>
+            <hr>
+            <label for="citizenship"><i class="fa fa-globe" aria-hidden="true"></i> Citizenship</label>
+            <select asp-for="Citizenship" id="citizenship" name="citizenship" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+              <option value="">-- Välj / select one --</option>
+              <option value="swedish">Swedish</option>
+              <option value="danish">Danish</option>
+              <option value="finnish">Finnish</option>
+              <option value="icelander">Icelander</option>
+              <option value="norwegian">Norwegian</option>
+
+            </select>
+
+            <hr>
+            <label for="PersonalIdentityNumber"><i class="fa fa-comment" aria-hidden="true"></i>Personal Identity Number </label>
+            <input type="number" asp-for="PersonalIdentityNumber" id="PersonalIdentityNumber" name="PersonalIdentityNumber"></input>
+            <hr>
+
+
+
+            <button class="btn" type="submit">
+              <span>
+
+                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span>
+               
+                <br />
+                <em>Request travel certificate</em>
+              </span>
+            </button>
+          </div>
+
+
+
+
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
+*@

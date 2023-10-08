@@ -1,0 +1,61 @@
+# Ignore Visual Studio files
+.vscode/
+.vs/
+*_i.c
+*_p.c
+*.suo
+*.sln.docstates
+
+# Ignore Visual Studio project folders
+bin/
+obj/
+
+# Ignore NuGet package directory
+packages/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Ignore build output
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb][Ii][Nn]/
+[Ll][Oo][Gg][Ss]/
+
+# Ignore Visual Studio temp files
+*.log
+*.vspscc
+*.vsp
+*.pidb
+*.user
+
+# Ignore Resharper
+_ReSharper*/
+
+# Ignore Rider
+.idea/
+
+# Ignore dotnet core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore build results
+[Tt]est[Rr]esult*/
+[Bb]in
+[Bb]uild[Ll]og.*
+
+# Ignore Microsoft Azure Service Fabric
+pkg/
+node_modules/

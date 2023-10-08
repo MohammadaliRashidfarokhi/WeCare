@@ -1,0 +1,42 @@
+﻿@{
+
+  ViewBag.Title = "Create Role";
+}
+@model string
+@{
+    Layout = "_ManageLayout";
+
+}
+
+
+
+@section ul{
+    
+    <li class="nav-item"><a class="nav-link" asp-controller="Admin" asp-action="Index">Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateUser" asp-controller="Admin">Create User</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="Roles" asp-controller="Admin">Roles / Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateRole" asp-controller="Admin">Create Role</a></li>
+    <li class="nav-item">  <a class="nav-link" href='javascript:history.go(-1)'>Back</a></li>
+
+               
+    <form class="form-inline">
+
+        <button asp-controller="Account" asp-action="LogOut" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+    </form>
+}
+<form asp-antiforgery="true" asp-action="CreateRole" method="post">
+  <h2 class="text-center">Create Role</h2>
+  <div class="form-group">
+    <input class="form-control" type="text" name="name" placeholder="Role Name">
+
+  </div>
+  <div class="form-group"><button class="btn btn-primary" type="submit">Submit </button></div>
+
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+

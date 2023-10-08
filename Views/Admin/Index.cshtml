@@ -1,0 +1,61 @@
+﻿@{
+
+  ViewBag.Title = "Home";
+}
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityUser>
+@{
+    Layout = "_ManageLayout";
+
+}
+
+
+
+@section ul{
+    
+    <li class="nav-item"><a class="nav-link" asp-controller="Admin" asp-action="Index">Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateUser" asp-controller="Admin">Create User</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="Roles" asp-controller="Admin">Roles / Users</a></li>
+    <li class="nav-item"><a class="nav-link" asp-action="CreateRole" asp-controller="Admin">Create Role</a></li>
+    <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Settings">Settings</a></li>
+
+               
+    <form class="form-inline">
+
+        <button asp-controller="Account" asp-action="LogOut" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button>
+    </form>
+}
+
+<div class="container hero">
+  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead class="">
+      <tr>
+
+
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (IdentityUser user in Model)
+      {
+        <tr>
+
+          <td>@user.UserName</td>
+          <td>@user.Email</td>
+          <td>
+            <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+              <button onclick="return confirm('Er du sikker på at du vil slette brukeren?')" type="submit" class="btn btn-sm btn-danger">
+                Delete
+              </button>
+            </form>
+          </td>
+
+        </tr>
+
+      }
+    </tbody>
+  </table>
+</div>
+
